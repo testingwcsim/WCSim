@@ -62,6 +62,7 @@ install:
     - mkdir Build
     - cd Build
     - cmake ../
+    - make -j8 LLVMCore
     - make -j8 Core
     - make -j8
     - sudo make install
