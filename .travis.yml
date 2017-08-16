@@ -47,7 +47,7 @@ install:
     - cd ..
     - mkdir dependancies
     - cd dependancies
-    - wgetwget https://cmake.org/files/v3.9/cmake-3.9.0.tar.gz  --no-check-certificate
+    - wget https://cmake.org/files/v3.9/cmake-3.9.0.tar.gz  --no-check-certificate
     - tar zxf cmake-3.9.0.tar.gz
     - cd cmake-3.9.0/
     - sudo apt-get purge cmake
