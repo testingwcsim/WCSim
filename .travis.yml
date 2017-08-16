@@ -53,9 +53,7 @@ install:
     - wget https://root.cern.ch/download/root_v5.28.00.source.tar.gz
     - tar -zxf root_v5.28.00.source.tar.gz
     - cd root
-    - mkdir Build
-    - cd Build
-    - cmake -DCMAKE_INSTALL_PREFIX= ../
+    - ./configure  --enable-python --enable-roofit --enable-minuit2 --enable-explicitlink --enable-soversion --enable-rpath
     - make -j8
     - sudo make install
 
