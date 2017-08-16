@@ -63,6 +63,8 @@ install:
     - cd Build
     - cmake ../
     - make -j8 LLVMCore
+    - make -j8 MathCore
+    - make -j8 TMVA
     - make -j8 Core
     - make -j8
     - sudo make install
