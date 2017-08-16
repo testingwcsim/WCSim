@@ -3,7 +3,7 @@ language: cpp
 compiler: gcc
 dist: trusty
 
-sudo: false
+sudo: true
 
 addons:
   apt:
@@ -33,7 +33,18 @@ install:
     - cd build
     - cmake -DCMAKE_INSTALL_PREFIX= ../source/2.2.0.4/CLHEP
     - make -j8
-    - make install 
+    - sudo make install 
 
+install:
+    - cd ../..
+    - echo Geant4 BUILD `pwd`
+    - wget http://geant4.web.cern.ch/geant4/support/source/geant4.10.01.p03.tar.gz
+    - tar -zxf geant4.10.01.p03.tar.gz
+    - cd geant4.10.01.p03
+    - mkdir build
+    - cd build
+    - cmake -DGEANT4_INSTALL_DATA=ON -DGEANT4_INSTALL_DATADIR=./Data -DCMAKE_INSTALL_PREFIX=./install -DCLHEP_VERSION_OK=${CLHEP_VERSION} -DCLHEP_LIBRARIES= ./lib -DCLHEP_INCLUDE_DIRS= ./include ../source/4.10.01.p02/
+    - make -j8
+    - sudo make install
 
 script: true
