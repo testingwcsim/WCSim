@@ -18,8 +18,11 @@ addons:
     - libxpm-dev
     - libxft-dev
     - libxext-dev
-    - libatomic-ops-dev 
+    - libatomic-ops-dev
 
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install cmake
 
 install:
     - cd ..
