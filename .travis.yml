@@ -61,7 +61,6 @@ install:
     - mkdir Build
     - cd Build
     - cmake ../
-    - make -j8
-    - sudo make install
+    - make help
 
 script: true
