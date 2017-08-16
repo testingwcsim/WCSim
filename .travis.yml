@@ -45,4 +45,18 @@ install:
     - make -j8
     - sudo make install
 
+install:
+    - cd ..
+    - mkdir dependancies
+    - cd dependancies
+    - echo STARTING ROOT BUILD `pwd`
+    - wget https://root.cern.ch/download/root_v5.28.00.source.tar.gz
+    - tar -zxf root_v5.28.00.source.tar.gz
+    - cd root
+    - mkdir build
+    - cd build
+    - cmake -DCMAKE_INSTALL_PREFIX= ../
+    - make -j8
+    - sudo make install
+
 script: true
