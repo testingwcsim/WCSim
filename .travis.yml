@@ -20,10 +20,6 @@ addons:
     - libxext-dev
     - libatomic-ops-dev
 
-before_install:
-  - sudo apt-get -qq update
-  - sudo apt-get install cmake
-
 install:
     - cd ..
     - mkdir dependancies
@@ -51,6 +47,13 @@ install:
     - cd ..
     - mkdir dependancies
     - cd dependancies
+    - wgetwget https://cmake.org/files/v3.9/cmake-3.9.0.tar.gz  --no-check-certificate
+    - tar zxf cmake-3.9.0.tar.gz
+    - cd cmake-3.9.0/
+    - sudo apt-get purge cmake
+    - ./bootstrap
+    - make -j8
+    - sudo make install
     - echo STARTING ROOT BUILD `pwd`
     - wget https://root.cern.ch/download/root_v6.10.00.source.tar.gz
     - tar -zxf root_v6.10.00.source.tar.gz
