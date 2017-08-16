@@ -53,7 +53,8 @@ install:
     - sudo apt-get purge cmake
     - ./bootstrap
     - make -j8
-    - sudo make install
+    - sudo make install 
+    - cd ..
     - echo STARTING ROOT BUILD `pwd`
     - wget https://root.cern.ch/download/root_v6.10.00.source.tar.gz
     - tar -zxf root_v6.10.00.source.tar.gz
@@ -61,6 +62,8 @@ install:
     - mkdir Build
     - cd Build
     - cmake ../
-    - make help
+    - make -j8 Core
+    - make -j8
+    - sudo make install
 
 script: true
