@@ -19,6 +19,7 @@ addons:
     - libxft-dev
     - libxext-dev
     - libatomic-ops-dev 
+    - libx11
 
 
 install:
