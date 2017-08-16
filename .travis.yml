@@ -22,7 +22,18 @@ addons:
     - libx11-6
 
 
-install: true
+install:
+    - cd ..
+    - mkdir dependancies
+    - cd dependancies
+    - echo STARTING CLHEP BUILD `pwd`
+    - git clone https://github.com/hyperk/CLHEP.git CLHEP
+    - cd CLHEP/
+    - mkdir build
+    - cd build
+    - cmake -DCMAKE_INSTALL_PREFIX= ../source/2.2.0.4/CLHEP
+    - make -j8
+    - make install 
 
 
 script: true
