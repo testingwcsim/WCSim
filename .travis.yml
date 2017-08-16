@@ -19,7 +19,6 @@ addons:
     - libxft-dev
     - libxext-dev
     - libatomic-ops-dev 
-    - libx11
 
 
 install:
@@ -50,10 +49,12 @@ install:
     - mkdir dependancies
     - cd dependancies
     - echo STARTING ROOT BUILD `pwd`
-    - wget https://root.cern.ch/download/root_v5.28.00.source.tar.gz
-    - tar -zxf root_v5.28.00.source.tar.gz
-    - cd root
-    - ./configure  --enable-python --enable-roofit --enable-minuit2 --enable-explicitlink --enable-soversion --enable-rpath
+    - wget https://root.cern.ch/download/root_v6.10.00.source.tar.gz
+    - tar -zxf root_v6.10.00.source.tar.gz
+    - cd root-6.10.00
+    - mkdir Build
+    - cd Build
+    - cmake ../
     - make -j8
     - sudo make install
 
