@@ -84,6 +84,9 @@ jobs:
         - make -j8 clangSerialization
         - make -j8 clangParse
         - make -j8 clangIndex
+      script: true
+    - stage: test4
+      install:
         - make -j8 clangFrontend
         - make -j8 clangEdit
         - make -j8 clangFormat
