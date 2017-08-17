@@ -68,6 +68,8 @@ install:
     - make -j8 clangASTMatchers
     - make -j8 clangLex
     - make -j8 clangAnalysis
+    - make -j8 clangToolingCore
+    - make -j8 clangTooling
     - make -j8 libclang
     - make -j8 move_header_core_clib
     - make -j8 MathCore
