@@ -18,7 +18,7 @@ if [ $1 = "Setup" ]
 then
     echo Checking dependancy state `pwd`
     cd /home/travis/dependancies
- echo cd `pwd`
+    echo cd `pwd`
     if [ ! -d "./CLHEP/build" ];
     then
 	rm -rf CLHEP
@@ -60,7 +60,7 @@ then
 	cd root-6.10.00
 	mkdir Build
 	cd Build
-	cmake ../ | tee ../../../logs/root.log
+	#cmake ../ | tee ../../../logs/root.log
 	cd ../../
     fi
     
@@ -104,12 +104,14 @@ then
     cd /home/travis/dependancies/cmake-3.9.0/
     sudo make install
     cd /home/travis/dependancies/root-6.10.00/Build
+    cmake ../ | tee ../../../logs/root.log
     make -j8 LLVMCore | tee ../../../logs/root.log
     make -j8 llvm-lib | tee ../../../logs/root.log
     make -j8 clangBasic | tee ../../../logs/root.log
     make -j8 clangASTMatchers | tee ../../../logs/root.log
     make -j8 clangLex | tee ../../../logs/root.log
-    make -j8 clangAnalysis | tee ../../../logs/root.log
+    make -j8 clan`pwd`
+gAnalysis | tee ../../../logs/root.log
     make -j8 clangToolingCore | tee ../../../logs/root.log
     make -j8 clangTooling | tee ../../../logs/root.log
     make -j8 clangDriver | tee ../../../logs/root.log
