@@ -63,14 +63,13 @@ install:
     - cd Build
     - cmake ../
     - make -j8 LLVMCore
-    - make -j8 llvm-lib
-    - make -j8 clangBasic
-    - make -j8 libclang
-    - make -j8 move_header_core_clib
-    - make -j8 MathCore
-    - make -j8 TMVA
-    - make -j8 Core
-    - make -j8
+    - make -j8 LLVMCore
+    - make -j8 LLVMCore
+    - make -j8 LLVMCore
+    - make -j8 LLVMCore
+    - make -j8 LLVMCore
+    - make -j8 LLVMCore
+    - make -j8 LLVMCore
     - sudo make install
 
 script: true
