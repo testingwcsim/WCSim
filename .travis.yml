@@ -22,7 +22,7 @@ addons:
 
 jobs:
   include:
-    - stage: test
+    - stage: test0
       install:
         - cd ..
         - mkdir dependancies
@@ -36,6 +36,9 @@ jobs:
         - make -j8
         - sudo make install 
         - cd ../..
+      script: true
+    - stage: test1
+      install:
         - echo Geant4 BUILD `pwd`
         - wget http://geant4.web.cern.ch/geant4/support/source/geant4.10.01.p03.tar.gz
         - tar -zxf geant4.10.01.p03.tar.gz
@@ -45,6 +48,7 @@ jobs:
         - cmake -DGEANT4_INSTALL_DATA=ON -DGEANT4_INSTALL_DATADIR=./Data -DCMAKE_INSTALL_PREFIX=./install -DCLHEP_VERSION_OK=${CLHEP_VERSION} -DCLHEP_LIBRARIES= ./lib -DCLHEP_INCLUDE_DIRS= ./include ../
         - make -j8
         - sudo make install
+      script: true
     - stage: test2
       install:
         - cd ..
@@ -58,6 +62,7 @@ jobs:
         - make -j8 
         - sudo make install 
         - cd ..
+      script: true
     - stage: test3
       install:
         - echo STARTING ROOT BUILD `pwd`
