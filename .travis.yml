@@ -52,7 +52,7 @@ install:
     - cd cmake-3.9.0/
     - sudo apt-get purge cmake
     - ./bootstrap
-    - make -j8
+    - make -j8 
     - sudo make install 
     - cd ..
     - echo STARTING ROOT BUILD `pwd`
@@ -63,13 +63,15 @@ install:
     - cd Build
     - cmake ../
     - make -j8 LLVMCore
-    - make -j8 LLVMCore
-    - make -j8 LLVMCore
-    - make -j8 LLVMCore
-    - make -j8 LLVMCore
-    - make -j8 LLVMCore
-    - make -j8 LLVMCore
-    - make -j8 LLVMCore
+    - make -j8 llvm-lib
+    - make -j8 clangBasic
+    - make -j8 clangASTMatchers
+    - make -j8 libclang
+    - make -j8 move_header_core_clib
+    - make -j8 MathCore
+    - make -j8 TMVA
+    - make -j8 Core
+    - make -j8 
     - sudo make install
-
+    
 script: true
