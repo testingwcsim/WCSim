@@ -1,0 +1,142 @@
+#! /usr/bin/env sh
+
+# Written by Benjamin Richards (b.richards@qmul.ac.uk)
+#
+# Continuous integration script for TraviCI build. The script is run by the .travis.yml
+
+################################## Trick to stop build timeout ##################
+
+#./buildextender.sh &
+#PID=$!
+#echo PID test $PID
+
+#################################################################################
+
+
+
+if [ $1 = "Setup" ]
+then
+    echo Checking dependancy state
+    cd /home/travis/dependancies
+
+    if [ ! -d "./CLHEP/build" ];
+    then
+	rm -rf CLHEP
+	git clone https://github.com/hyperk/CLHEP.git CLHEP
+	cd CLHEP/
+	mkdir build
+	cd build
+	cmake -DCMAKE_INSTALL_PREFIX= ../source/2.2.0.4/CLHEP | tee ../../../logs/CLHEP.log
+	cd ../../
+    fi
+
+    if [ ! -d "./geant4.10.01.p03/build" ];
+    then
+	rm -rf geant4.10.01.p03
+	wget http://geant4.web.cern.ch/geant4/support/source/geant4.10.01.p03.tar.gz
+	tar -zxf geant4.10.01.p03.tar.gz
+	cd geant4.10.01.p03
+	mkdir build
+	cd build
+	cmake -DGEANT4_INSTALL_DATA=ON -DGEANT4_INSTALL_DATADIR=./Data -DCMAKE_INSTALL_PREFIX=./install -DCLHEP_VERSION_OK=${CLHEP_VERSION} -DCLHEP_LIBRARIES= ./lib -DCLHEP_INCLUDE_DIRS= ./include ../ | tee ../../../logs/Geant4.log
+	cd ../..
+    fi
+    
+    if [ ! -d "./cmake-3.9.0/Makefile" ];
+    then
+	rm -rf cmake-3.9.0
+	wget https://cmake.org/files/v3.9/cmake-3.9.0.tar.gz  --no-check-certificate
+	tar zxf cmake-3.9.0.tar.gz
+	cd cmake-3.9.0/
+	 #sudo apt-get purge cmake
+	cd ../
+    fi
+    
+    if [ ! -d "./root-6.10.00/Build" ];
+    then
+	rm -rf root-6.10.00
+	wget https://root.cern.ch/download/root_v6.10.00.source.tar.gz
+	tar -zxf root_v6.10.00.source.tar.gz
+	cd root-6.10.00
+	mkdir Build
+	cd Build
+	cmake ../ | tee ../../../logs/root.log
+	cd ../../
+    fi
+    
+    
+fi
+
+
+if [ $1 = "CLHEP" ]
+then
+    echo STARTING CLHEP BUILD `pwd`
+    cd home/travis/dependancies/CLHEP/build
+    make -j8 | tee ../../../logs/CLHEP.log
+    cd ../../../WCSim
+fi
+
+if [ $1 = "Geant4" ]
+then
+    echo STARTING Geant4 BUILD `pwd`
+    cd home/travis/dependancies/geant4.10.01.p03/build
+    make -j8 | tee ../../../logs/Geant4.log
+    cd ../../../WCSim
+fi
+
+
+
+if [ $1 = "cmake" ]
+then
+    echo STARTING cmake BUILD `pwd`
+    sudo apt-get purge cmake
+    cd /home/travis/dependancies/cmake-3.9.0/
+    ./bootstrap | tee ../../logs/cmake.log
+    make -j8 | tee ../../logs/cmake.log
+    cd ../../WCSim
+fi
+
+
+if [ $1 = "root1" ]
+then
+    echo STARTING ROOT BUILD `pwd`
+    sudo apt-get purge cmake
+    cd /home/travis/dependancies/cmake-3.9.0/
+    sudo make install
+    cd /home/travis/dependancies/root-6.10.00/Build
+    make -j8 LLVMCore | tee ../../../logs/root.log
+    make -j8 llvm-lib | tee ../../../logs/root.log
+    make -j8 clangBasic | tee ../../../logs/root.log
+    make -j8 clangASTMatchers | tee ../../../logs/root.log
+    make -j8 clangLex | tee ../../../logs/root.log
+    make -j8 clangAnalysis | tee ../../../logs/root.log
+    make -j8 clangToolingCore | tee ../../../logs/root.log
+    make -j8 clangTooling | tee ../../../logs/root.log
+    make -j8 clangDriver | tee ../../../logs/root.log
+    make -j8 clangSerialization | tee ../../../logs/root.log
+    make -j8 clangParse | tee ../../../logs/root.log
+    make -j8 clangIndex | tee ../../../logs/root.log
+fi
+
+if [ $1 = "root2" ]
+then
+    sudo apt-get purge cmake
+    cd /home/travis/dependancies/cmake-3.9.0/
+    sudo make install
+    cd /home/travis/dependancies/root-6.10.00/Build
+    make -j8 clangFrontend | tee ../../../logs/root.log
+    make -j8 clangEdit | tee ../../../logs/root.log
+    make -j8 clangFormat | tee ../../../logs/root.log
+    make -j8 libclang | tee ../../../logs/root.log
+    make -j8 move_header_core_clib | tee ../../../logs/root.log
+    make -j8 MathCore | tee ../../../logs/root.log
+    make -j8 TMVA | tee ../../../logs/root.log
+    make -j8 Core | tee ../../../logs/root.log
+    make -j8 | tee ../../../logs/root.log
+fi
+
+################################# Kill build timeout trick ######################
+
+#kill -9 $PID
+
+################################################################################

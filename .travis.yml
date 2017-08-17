@@ -22,98 +22,59 @@ addons:
 
 jobs:
   include:
-    - stage: test0
+    - stage: SETUP & CLHEP
       install:
-        - cd /home/travis/dependancies
-        - echo STARTING CLHEP BUILD `pwd`
-        - git clone https://github.com/hyperk/CLHEP.git CLHEP
-        - cd CLHEP/
-        - mkdir build
-        - cd build
-        - cmake -DCMAKE_INSTALL_PREFIX= ../source/2.2.0.4/CLHEP
-        - make -j8
-        - sudo make install 
+        - ./CI.sh Setup
+        - ./CI.sh CLHEP
       script: true
       cache:
         directories:
-            - /home/travis/dependancies
-    - stage: test1
+            - /home/travis/dependancies/CLHEP
+            - /home/travis/dependancies/geant4.10.01.p03
+            - /home/travis/dependancies/cmake-3.9.0
+            - /home/travis/dependancies/root-6.10.00
+            - /home/travis/logs
+    - stage: Geant4
       install:
-        - cd /home/travis/dependancies
-        - echo Geant4 BUILD `pwd`
-        - wget http://geant4.web.cern.ch/geant4/support/source/geant4.10.01.p03.tar.gz
-        - tar -zxf geant4.10.01.p03.tar.gz
-        - cd geant4.10.01.p03
-        - mkdir build
-        - cd build
-        - cmake -DGEANT4_INSTALL_DATA=ON -DGEANT4_INSTALL_DATADIR=./Data -DCMAKE_INSTALL_PREFIX=./install -DCLHEP_VERSION_OK=${CLHEP_VERSION} -DCLHEP_LIBRARIES= ./lib -DCLHEP_INCLUDE_DIRS= ./include ../
-        - make -j8
-        - sudo make install >log
+        - ./CI.sh Geant4
       script: true
       cache:
         directories:
-            - /home/travis/dependancies
-    - stage: test2
+            - /home/travis/dependancies/CLHEP
+            - /home/travis/dependancies/geant4.10.01.p03
+            - /home/travis/dependancies/cmake-3.9.0
+            - /home/travis/dependancies/root-6.10.00
+            - /home/travis/logs
+    - stage: cmake
       install:
-        - cd /home/travis/dependancies
-        - echo cmake BUILD `pwd`
-        - wget https://cmake.org/files/v3.9/cmake-3.9.0.tar.gz  --no-check-certificate
-        - tar zxf cmake-3.9.0.tar.gz
-        - cd cmake-3.9.0/
-        - sudo apt-get purge cmake
-        - ./bootstrap
-        - make -j8 
-        - sudo make install 
+        - ./CI.sh cmake
       script: true
       cache:
         directories:
-            - /home/travis/dependancies
-    - stage: test3
+            - /home/travis/dependancies/CLHEP
+            - /home/travis/dependancies/geant4.10.01.p03
+            - /home/travis/dependancies/cmake-3.9.0
+            - /home/travis/dependancies/root-6.10.00
+            - /home/travis/logs
+    - stage: root1
       install:
-        - sudo apt-get purge cmake
-        - cd /home/travis/dependancies/cmake-3.9.0/
-        - sudo make install
-        - cd /home/travis/dependancies
-        - echo STARTING ROOT BUILD `pwd`
-        - wget https://root.cern.ch/download/root_v6.10.00.source.tar.gz
-        - tar -zxf root_v6.10.00.source.tar.gz
-        - cd root-6.10.00
-        - mkdir Build
-        - cd Build
-        - cmake ../
-        - make -j8 LLVMCore
-        - make -j8 llvm-lib
-        - make -j8 clangBasic
-        - make -j8 clangASTMatchers
-        - make -j8 clangLex
-        - make -j8 clangAnalysis
-        - make -j8 clangToolingCore
-        - make -j8 clangTooling
-        - make -j8 clangDriver
-        - make -j8 clangSerialization
-        - make -j8 clangParse
-        - make -j8 clangIndex
+        - ./CI.sh root1
       script: true
       cache:
         directories:
-            - /home/travis/dependancies
-    - stage: test4
+            - /home/travis/dependancies/CLHEP
+            - /home/travis/dependancies/geant4.10.01.p03
+            - /home/travis/dependancies/cmake-3.9.0
+            - /home/travis/dependancies/root-6.10.00
+            - /home/travis/logs
+    - stage: root2
       install:
-        - sudo apt-get purge cmake
-        - cd /home/travis/dependancies/cmake-3.9.0/
-        - sudo make install
-        - cd /home/travis/dependancies/root-6.10.00/Build
-        - make -j8 clangFrontend
-        - make -j8 clangEdit
-        - make -j8 clangFormat
-        - make -j8 libclang
-        - make -j8 move_header_core_clib
-        - make -j8 MathCore
-        - make -j8 TMVA
-        - make -j8 Core
-        - make -j8 
-        - sudo make install
+        - ./CI.sh root2
       script: true
       cache:
         directories:
-            - /home/travis/dependancies
+            - /home/travis/dependancies/CLHEP
+            - /home/travis/dependancies/geant4.10.01.p03
+            - /home/travis/dependancies/cmake-3.9.0
+            - /home/travis/dependancies/root-6.10.00
+            - /home/travis/logs
