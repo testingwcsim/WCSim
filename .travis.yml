@@ -24,9 +24,7 @@ jobs:
   include:
     - stage: test0
       install:
-        - cd /home/travis/
-        - mkdir dependancies
-        - cd dependancies
+        - cd /home/travis/dependancies
         - echo STARTING CLHEP BUILD `pwd`
         - git clone https://github.com/hyperk/CLHEP.git CLHEP
         - cd CLHEP/
