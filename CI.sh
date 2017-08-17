@@ -16,7 +16,7 @@
 
 if [ $1 = "Setup" ]
 then
-    echo Checking dependancy state
+    echo Checking dependancy state `pwd`
     cd /home/travis/dependancies
 
     if [ ! -d "./CLHEP/build" ];
@@ -71,7 +71,7 @@ fi
 if [ $1 = "CLHEP" ]
 then
     echo STARTING CLHEP BUILD `pwd`
-    cd home/travis/dependancies/CLHEP/build
+    cd /home/travis/dependancies/CLHEP/build
     make -j8 | tee ../../../logs/CLHEP.log
     cd ../../../WCSim
 fi
@@ -79,7 +79,7 @@ fi
 if [ $1 = "Geant4" ]
 then
     echo STARTING Geant4 BUILD `pwd`
-    cd home/travis/dependancies/geant4.10.01.p03/build
+    cd /home/travis/dependancies/geant4.10.01.p03/build
     make -j8 | tee ../../../logs/Geant4.log
     cd ../../../WCSim
 fi
