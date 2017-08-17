@@ -20,7 +20,8 @@ addons:
     - libxext-dev
     - libatomic-ops-dev
 
-install:
+jobs:
+ install:
     - cd ..
     - mkdir dependancies
     - cd dependancies
@@ -43,7 +44,7 @@ install:
     - make -j8
     - sudo make install
 
-install:
+ install:
     - cd ..
     - mkdir dependancies
     - cd dependancies
