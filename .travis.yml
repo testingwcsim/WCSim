@@ -75,6 +75,8 @@ install:
     - make -j8 clangParse
     - make -j8 clangIndex
     - make -j8 clangFrontend
+    - make -j8 clangEdit
+    - make -j8 clangFormat
     - make -j8 libclang
     - make -j8 move_header_core_clib
     - make -j8 MathCore
