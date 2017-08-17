@@ -70,6 +70,11 @@ install:
     - make -j8 clangAnalysis
     - make -j8 clangToolingCore
     - make -j8 clangTooling
+    - make -j8 clangDriver
+    - make -j8 clangSerialization
+    - make -j8 clangParse
+    - make -j8 clangIndex
+    - make -j8 clangFrontend
     - make -j8 libclang
     - make -j8 move_header_core_clib
     - make -j8 MathCore
@@ -77,5 +82,10 @@ install:
     - make -j8 Core
     - make -j8 
     - sudo make install
-    
+
+
+cache:
+  directories:
+      - /home/travis/dependancies/cmake-3.9.0
+
 script: true
