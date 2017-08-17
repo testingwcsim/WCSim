@@ -36,6 +36,9 @@ jobs:
         - make -j8
         - sudo make install 
       script: true
+      cache:
+        directories:
+            - /home/travis/dependancies
     - stage: test1
       install:
         - cd ../dependancies
@@ -49,6 +52,9 @@ jobs:
         - make -j8
         - sudo make install >log
       script: true
+      cache:
+        directories:
+            - /home/travis/dependancies
     - stage: test2
       install:
         - cd ../dependancies
@@ -61,6 +67,9 @@ jobs:
         - make -j8 
         - sudo make install 
       script: true
+      cache:
+        directories:
+            - /home/travis/dependancies
     - stage: test3
       install:
         - cd ../dependancies
@@ -84,6 +93,9 @@ jobs:
         - make -j8 clangParse
         - make -j8 clangIndex
       script: true
+      cache:
+        directories:
+            - /home/travis/dependancies
     - stage: test4
       install:
         - cd ../dependancies/root-6.10.00/Build
@@ -98,8 +110,6 @@ jobs:
         - make -j8 
         - sudo make install
       script: true
-
-cache:
-  directories:
-      - /home/travis/dependancies/cmake-3.9.0
-
+      cache:
+        directories:
+            - /home/travis/dependancies
