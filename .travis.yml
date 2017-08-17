@@ -45,6 +45,7 @@ jobs:
         - cmake -DGEANT4_INSTALL_DATA=ON -DGEANT4_INSTALL_DATADIR=./Data -DCMAKE_INSTALL_PREFIX=./install -DCLHEP_VERSION_OK=${CLHEP_VERSION} -DCLHEP_LIBRARIES= ./lib -DCLHEP_INCLUDE_DIRS= ./include ../
         - make -j8
         - sudo make install
+    - stage: test2
       install:
         - cd ..
         - mkdir dependancies
@@ -57,6 +58,8 @@ jobs:
         - make -j8 
         - sudo make install 
         - cd ..
+    - stage: test3
+      install:
         - echo STARTING ROOT BUILD `pwd`
         - wget https://root.cern.ch/download/root_v6.10.00.source.tar.gz
         - tar -zxf root_v6.10.00.source.tar.gz
