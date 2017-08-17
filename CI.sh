@@ -18,7 +18,7 @@ if [ $1 = "Setup" ]
 then
     echo Checking dependancy state `pwd`
     cd /home/travis/dependancies
-
+ echo cd `pwd`
     if [ ! -d "./CLHEP/build" ];
     then
 	rm -rf CLHEP
