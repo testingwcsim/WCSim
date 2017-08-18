@@ -78,3 +78,14 @@ jobs:
             - /home/travis/dependancies/cmake-3.9.0
             - /home/travis/dependancies/root-6.10.00
             - /home/travis/logs
+   - stage: root3
+      install:
+        - ./CI.sh root3
+      script: true
+      cache:
+        directories:
+            - /home/travis/dependancies/CLHEP
+            - /home/travis/dependancies/geant4.10.01.p03
+            - /home/travis/dependancies/cmake-3.9.0
+            - /home/travis/dependancies/root-6.10.00
+            - /home/travis/logs

@@ -73,7 +73,7 @@ then
     echo STARTING CLHEP BUILD `pwd`
     cd /home/travis/dependancies/CLHEP/build
     make -j8 | tee ../../../logs/CLHEP.log
-    cd ../../../WCSim
+    #cd ../../../WCSim
 fi
 
 if [ $1 = "Geant4" ]
@@ -81,7 +81,7 @@ then
     echo STARTING Geant4 BUILD `pwd`
     cd /home/travis/dependancies/geant4.10.01.p03/build
     make -j8 | tee ../../../logs/Geant4.log
-    cd ../../../WCSim
+    #cd ../../../WCSim
 fi
 
 
@@ -93,7 +93,7 @@ then
     cd /home/travis/dependancies/cmake-3.9.0/
     ./bootstrap | tee ../../logs/cmake.log
     make -j8 | tee ../../logs/cmake.log
-    cd ../../WCSim
+    #cd ../../WCSim
 fi
 
 
@@ -134,6 +134,15 @@ then
     make -j8 MathCore | tee ../../../logs/root.log
     make -j8 TMVA | tee ../../../logs/root.log
     make -j8 Core | tee ../../../logs/root.log
+    make -j8 | tee ../../../logs/root.log
+fi
+
+if [ $1 = "root3" ]
+then
+    sudo apt-get purge cmake
+    cd /home/travis/dependancies/cmake-3.9.0/
+    sudo make install
+    cd /home/travis/dependancies/root-6.10.00/Build
     make -j8 | tee ../../../logs/root.log
 fi
 
