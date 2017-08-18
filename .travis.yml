@@ -78,7 +78,7 @@ jobs:
             - /home/travis/dependancies/cmake-3.9.0
             - /home/travis/dependancies/root-6.10.00
             - /home/travis/logs
-   - stage: root3
+    - stage: root3
       install:
         - ./CI.sh root3
       script: true
