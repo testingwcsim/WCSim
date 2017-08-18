@@ -149,9 +149,16 @@ then
     sudo make install
     cd /home/travis/dependancies/root-6.10.00/Build
     make -j8 Core | tee ../../../logs/root.log
-    make -j8 | tee ../../../logs/root.log
 fi
 
+if [ $1 = "root5" ]
+then
+    sudo apt-get purge cmake
+    cd /home/travis/dependancies/cmake-3.9.0/
+    sudo make install
+    cd /home/travis/dependancies/root-6.10.00/Build
+    make -j8 | tee ../../../logs/root.log
+fi
 
 ################################# Kill build timeout trick ######################
 
