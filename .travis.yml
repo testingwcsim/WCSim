@@ -3,8 +3,6 @@ language: cpp
 compiler: gcc
 dist: trusty
 
-sudo: true
-
 addons:
   apt:
     packages:
