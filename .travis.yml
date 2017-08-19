@@ -20,9 +20,9 @@ addons:
 
 jobs:
   include:
-    - stage: SETUP & CLHEP
+    - stage: SETUP
       sudo: false
-      install: ./CI.sh Setup; ./CI.sh CLHEP
+      install: ./CI.sh Setup
       cache:
         directories:
             - /home/travis/dependancies/CLHEP
@@ -30,6 +30,12 @@ jobs:
             - /home/travis/dependancies/cmake-3.9.0
             - /home/travis/dependancies/root-6.10.00
             - /home/travis/logs
+    - stage: Dependancies 1
+      sudo: false
+      install: ./CI.sh CLHEP
+      cache:
+        directories:
+            - /home/travis/dependancies/CLHEP
     -
       sudo: false
       install: ./CI.sh Geant4
