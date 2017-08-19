@@ -124,68 +124,68 @@ fi
 
 if [ $1 = "root2" ]
 then
-    sudo apt-get purge cmake
+    #sudo apt-get purge cmake
     cd /home/travis/dependancies/cmake-3.9.0/
-    sudo make install
+    #sudo make install
     cd /home/travis/dependancies/root-6.10.00/Build
-    make -j8 clangFrontend | tee ../../../logs/root.log
-    make -j8 clangEdit | tee ../../../logs/root.log
-    make -j8 clangFormat | tee ../../../logs/root.log
-    make -j8 libclang | tee ../../../logs/root.log
-    make -j8 move_header_core_clib | tee ../../../logs/root.log
-    make -j8 MathCore | tee ../../../logs/root.log
+    #make -j8 clangFrontend | tee ../../../logs/root.log
+    #make -j8 clangEdit | tee ../../../logs/root.log
+    #make -j8 clangFormat | tee ../../../logs/root.log
+    #make -j8 libclang | tee ../../../logs/root.log
+    #make -j8 move_header_core_clib | tee ../../../logs/root.log
+    #make -j8 MathCore | tee ../../../logs/root.log
 fi
 
 if [ $1 = "root3" ]
 then
-    sudo apt-get purge cmake
+    #sudo apt-get purge cmake
     cd /home/travis/dependancies/cmake-3.9.0/
-    sudo make install
+    #sudo make install
     cd /home/travis/dependancies/root-6.10.00/Build    
-    make -j8 TMVA | tee ../../../logs/root.log
+    #make -j8 TMVA | tee ../../../logs/root.log
 fi
 
 if [ $1 = "root4" ]
 then
-    sudo apt-get purge cmake
+    #sudo apt-get purge cmake
     cd /home/travis/dependancies/cmake-3.9.0/
-    sudo make install
+    #sudo make install
     cd /home/travis/dependancies/root-6.10.00/Build
-    make -j8 Core | tee ../../../logs/root.log
+    #make -j8 Core | tee ../../../logs/root.log
 fi
 
 if [ $1 = "root5" ]
 then
-    sudo apt-get purge cmake
+    #sudo apt-get purge cmake
     cd /home/travis/dependancies/cmake-3.9.0/
-    sudo make install
+    #sudo make install
     cd /home/travis/dependancies/root-6.10.00/Build
-    make -j8 AFTERIMAGE | tee ../../../logs/root.log
-    make -j8 Cont | tee ../../../logs/root.log
-    make -j8 TextInput | tee ../../../logs/root.log
-    make -j8 obj.clingUtils | tee ../../../logs/root.log
-    make -j8 obj.clingMetaProcessor | tee ../../../logs/root.log
-    make -j8 clangAST | tee ../../../logs/root.log
-    make -j8 obj.clingInterpreter | tee ../../../logs/root.log
-    make -j8 clangSema | tee ../../../logs/root.log
-    make -j8 LLVMObjCARCOpts | tee ../../../logs/root.log
-    make -j8 MetaCling | tee ../../../logs/root.log
-    make -j8 clangFrontend | tee ../../../logs/root.log
-    make -j8 clangCodeGen | tee ../../../logs/root.log
-    make -j8 GX11 | tee ../../../logs/root.log
-    make -j8 GenVector | tee ../../../logs/root.log
-    make -j8 XMLIO | tee ../../../logs/root.log
-    make -j8 Net | tee ../../../logs/root.log
-    make -j8 SQLIO | tee ../../../logs/root.log
-    make -j8 Matrix | tee ../../../logs/root.log
-    make -j8 Tree | tee ../../../logs/root.log
-    make -j8 Physics | tee ../../../logs/root.log
-    make -j8 base | tee ../../../logs/root.log
-    make -j8 PyROOT | tee ../../../logs/root.log
-    make -j8 Proof | tee ../../../logs/root.log
-    make -j8 Foam | tee ../../../logs/root.log
-    make -j8 Spectrum | tee ../../../logs/root.log
-    make -j8 SpectrumPainter | tee ../../../logs/root.log
+    #make -j8 AFTERIMAGE | tee ../../../logs/root.log
+    #make -j8 Cont | tee ../../../logs/root.log
+    #make -j8 TextInput | tee ../../../logs/root.log
+    #make -j8 obj.clingUtils | tee ../../../logs/root.log
+    #make -j8 obj.clingMetaProcessor | tee ../../../logs/root.log
+    #make -j8 clangAST | tee ../../../logs/root.log
+    #make -j8 obj.clingInterpreter | tee ../../../logs/root.log
+    m#ake -j8 clangSema | tee ../../../logs/root.log
+    #make -j8 LLVMObjCARCOpts | tee ../../../logs/root.log
+    #make -j8 MetaCling | tee ../../../logs/root.log
+    #make -j8 clangFrontend | tee ../../../logs/root.log
+    #make -j8 clangCodeGen | tee ../../../logs/root.log
+   # make -j8 GX11 | tee ../../../logs/root.log
+   # make -j8 GenVector | tee ../../../logs/root.log
+   # make -j8 XMLIO | tee ../../../logs/root.log
+   # make -j8 Net | tee ../../../logs/root.log
+   # make -j8 SQLIO | tee ../../../logs/root.log
+   # make -j8 Matrix | tee ../../../logs/root.log
+   # make -j8 Tree | tee ../../../logs/root.log
+   # make -j8 Physics | tee ../../../logs/root.log
+  #  make -j8 base | tee ../../../logs/root.log
+  #  make -j8 PyROOT | tee ../../../logs/root.log
+  #  make -j8 Proof | tee ../../../logs/root.log
+  #  make -j8 Foam | tee ../../../logs/root.log
+  #  make -j8 Spectrum | tee ../../../logs/root.log
+  #  make -j8 SpectrumPainter | tee ../../../logs/root.log
 fi
 
 if [ $1 = "root6" ]
@@ -194,7 +194,7 @@ then
     cd /home/travis/dependancies/cmake-3.9.0/
     sudo make install
     cd /home/travis/dependancies/root-6.10.00/Build
-    make -j8 | tee ../../../logs/root.log
+ #   make -j8 | tee ../../../logs/root.log
 fi
 
 ################################# Kill build timeout trick ######################
