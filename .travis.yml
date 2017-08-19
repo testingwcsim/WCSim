@@ -33,6 +33,7 @@ jobs:
     -
       sudo: false
       script: ./CI.sh Geant4
+      cache:
         directories:
             - /home/travis/dependancies/CLHEP
             - /home/travis/dependancies/geant4.10.01.p03
