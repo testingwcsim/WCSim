@@ -24,7 +24,9 @@ jobs:
   include:
     - stage: SETUP & CLHEP
       script: ./CI.sh Setup; ./CI.sh CLHEP
+    -
       script: ./CI.sh Geant4
+    -
       script: ./CI.sh cmake
       cache:
         directories:
