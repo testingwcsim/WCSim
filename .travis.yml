@@ -22,7 +22,7 @@ jobs:
   include:
     - stage: SETUP
       sudo: false
-      install: ./CI.sh Setup
+      script: ./CI.sh Setup
       cache:
         directories:
             - /home/travis/dependancies/CLHEP
@@ -32,20 +32,20 @@ jobs:
             - /home/travis/logs
     - stage: Dependancies 1
       sudo: false
-      install: ./CI.sh CLHEP
+      script: ./CI.sh CLHEP
       cache:
         directories:
             - /home/travis/dependancies/CLHEP
     -
       sudo: false
-      install: ./CI.sh Geant4
+      script: ./CI.sh Geant4
       cache:
         directories:
             - /home/travis/dependancies/geant4.10.01.p03
             - /home/travis/logs
     -
       sudo: false
-      install: ./CI.sh cmake
+      script: ./CI.sh cmake
       cache:
         directories:
             - /home/travis/dependancies/cmake-3.9.0
