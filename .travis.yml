@@ -22,7 +22,7 @@ jobs:
   include:
     - stage: SETUP & CLHEP
       sudo: false
-      script: ./CI.sh Setup; ./CI.sh CLHEP
+      install: ./CI.sh Setup; ./CI.sh CLHEP
       cache:
         directories:
             - /home/travis/dependancies/CLHEP
@@ -32,25 +32,20 @@ jobs:
             - /home/travis/logs
     -
       sudo: false
-      script: ./CI.sh Geant4
+      install: ./CI.sh Geant4
       cache:
         directories:
-            - /home/travis/dependancies/CLHEP
             - /home/travis/dependancies/geant4.10.01.p03
-            - /home/travis/dependancies/cmake-3.9.0
-            - /home/travis/dependancies/root-6.10.00
             - /home/travis/logs
     -
       sudo: false
-      script: ./CI.sh cmake
+      install: ./CI.sh cmake
       cache:
         directories:
-            - /home/travis/dependancies/CLHEP
-            - /home/travis/dependancies/geant4.10.01.p03
             - /home/travis/dependancies/cmake-3.9.0
-            - /home/travis/dependancies/root-6.10.00
             - /home/travis/logs
     - stage: root1
+      sudo: false
       install:
         - ./CI.sh root1
       script: true
@@ -62,6 +57,7 @@ jobs:
             - /home/travis/dependancies/root-6.10.00
             - /home/travis/logs
     - stage: root2
+      sudo: false
       install:
         - ./CI.sh root2
       script: true
@@ -73,6 +69,7 @@ jobs:
             - /home/travis/dependancies/root-6.10.00
             - /home/travis/logs
     - stage: root3
+      sudo: false
       install:
         - ./CI.sh root3
       script: true
@@ -84,6 +81,7 @@ jobs:
             - /home/travis/dependancies/root-6.10.00
             - /home/travis/logs
     - stage: root4
+      sudo: false
       install:
         - ./CI.sh root4
       script: true
@@ -95,6 +93,7 @@ jobs:
             - /home/travis/dependancies/root-6.10.00
             - /home/travis/logs
     - stage: root5
+      sudo: false
       install:
         - ./CI.sh root5
       script: true
@@ -106,6 +105,7 @@ jobs:
             - /home/travis/dependancies/root-6.10.00
             - /home/travis/logs
     - stage: root6
+      sudo: false
       install:
         - ./CI.sh root6
       script: true
