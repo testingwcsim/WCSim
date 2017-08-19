@@ -40,7 +40,7 @@ jobs:
             - /home/travis/dependancies/cmake-3.9.0
             - /home/travis/dependancies/root-6.10.00
             - /home/travis/logs
-    -
+    - stage: Dependancies 2
       sudo: false
       script: ./CI.sh Geant4
       cache:
@@ -50,7 +50,7 @@ jobs:
             - /home/travis/dependancies/cmake-3.9.0
             - /home/travis/dependancies/root-6.10.00
             - /home/travis/logs
-    -
+    - stage: Dependancies 3
       sudo: false
       script: ./CI.sh cmake
       cache:
@@ -61,7 +61,7 @@ jobs:
             - /home/travis/dependancies/root-6.10.00
             - /home/travis/logs
     - stage: root1
-      sudo: true
+      sudo: false
       script: ./CI.sh root1
       cache:
         directories:
