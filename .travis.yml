@@ -23,32 +23,9 @@ addons:
 jobs:
   include:
     - stage: SETUP & CLHEP
-      install:
-        - ./CI.sh Setup
-        - ./CI.sh CLHEP
-      script: true
-      cache:
-        directories:
-            - /home/travis/dependancies/CLHEP
-            - /home/travis/dependancies/geant4.10.01.p03
-            - /home/travis/dependancies/cmake-3.9.0
-            - /home/travis/dependancies/root-6.10.00
-            - /home/travis/logs
-    - stage: Geant4
-      install:
-        - ./CI.sh Geant4
-      script: true
-      cache:
-        directories:
-            - /home/travis/dependancies/CLHEP
-            - /home/travis/dependancies/geant4.10.01.p03
-            - /home/travis/dependancies/cmake-3.9.0
-            - /home/travis/dependancies/root-6.10.00
-            - /home/travis/logs
-    - stage: cmake
-      install:
-        - ./CI.sh cmake
-      script: true
+      script: ./CI.sh Setup; ./CI.sh CLHEP
+      script: ./CI.sh Geant4
+      script: ./CI.sh cmake
       cache:
         directories:
             - /home/travis/dependancies/CLHEP
