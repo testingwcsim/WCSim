@@ -100,23 +100,26 @@ fi
 if [ $1 = "root1" ]
 then
     echo STARTING ROOT BUILD `pwd`
-    sudo apt-get purge cmake
-    cd /home/travis/dependancies/cmake-3.9.0/
-    sudo make install
+ #   sudo apt-get purge cmake
+    cd /home/travis/dependancies/cmake-3.9.0/bin
+    #sudo make install
+    export PATH=/home/travis/dependancies/cmake-3.9.0/bin:$PATH
+echo `which cmake`
     cd /home/travis/dependancies/root-6.10.00/Build
     cmake ../ | tee ../../../logs/root.log
-    make -j8 LLVMCore | tee ../../../logs/root.log
-    make -j8 llvm-lib | tee ../../../logs/root.log
-    make -j8 clangBasic | tee ../../../logs/root.log
-    make -j8 clangASTMatchers | tee ../../../logs/root.log
-    make -j8 clangLex | tee ../../../logs/root.log
-    make -j8 clangAnalysis | tee ../../../logs/root.log
-    make -j8 clangToolingCore | tee ../../../logs/root.log
-    make -j8 clangTooling | tee ../../../logs/root.log
-    make -j8 clangDriver | tee ../../../logs/root.log
-    make -j8 clangSerialization | tee ../../../logs/root.log
-    make -j8 clangParse | tee ../../../logs/root.log
-    make -j8 clangIndex | tee ../../../logs/root.log
+    make -j8 | tee ../../../logs/root.log
+#    make -j8 LLVMCore | tee ../../../logs/root.log
+ #   make -j8 llvm-lib | tee ../../../logs/root.log
+  #  make -j8 clangBasic | tee ../../../logs/root.log
+  #  make -j8 clangASTMatchers | tee ../../../logs/root.log
+  #  make -j8 clangLex | tee ../../../logs/root.log
+  #  make -j8 clangAnalysis | tee ../../../logs/root.log
+  #  make -j8 clangToolingCore | tee ../../../logs/root.log
+  #  make -j8 clangTooling | tee ../../../logs/root.log
+  #  make -j8 clangDriver | tee ../../../logs/root.log
+  #  make -j8 clangSerialization | tee ../../../logs/root.log
+  #  make -j8 clangParse | tee ../../../logs/root.log
+  #  make -j8 clangIndex | tee ../../../logs/root.log
 fi
 
 if [ $1 = "root2" ]
