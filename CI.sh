@@ -100,11 +100,11 @@ fi
 if [ $1 = "root1" ]
 then
     echo STARTING ROOT BUILD `pwd`
- #   sudo apt-get purge cmake
+    sudo apt-get purge cmake
     cd /home/travis/dependancies/cmake-3.9.0/bin
-    #sudo make install
-    export PATH=/home/travis/dependancies/cmake-3.9.0/bin:$PATH
-echo `which cmake`
+    sudo make install
+    #export PATH=/home/travis/dependancies/cmake-3.9.0/bin:$PATH
+    echo `which cmake`
     cd /home/travis/dependancies/root-6.10.00/Build
     cmake ../ | tee ../../../logs/root.log
     make -j8 | tee ../../../logs/root.log

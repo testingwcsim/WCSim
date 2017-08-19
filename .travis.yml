@@ -61,7 +61,7 @@ jobs:
             - /home/travis/dependancies/root-6.10.00
             - /home/travis/logs
     - stage: root1
-      sudo: false
+      sudo: true
       script: ./CI.sh root1
       cache:
         directories:
