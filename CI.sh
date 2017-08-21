@@ -197,6 +197,21 @@ then
  #   make -j8 | tee ../../../logs/root.log
 fi
 
+
+if [ $1 = "build" ]
+then
+    wcsim=`pwd`
+    cd /home/travis/dependancies/CLHEP/build   
+    sudo make install
+    cd /home/travis/dependancies/geant4.10.01.p03/build
+    sudo make install
+    cd  $wcsim
+    make clean
+    make rootcint
+    make
+ #   make -j8 | tee ../../../logs/root.log
+fi
+
 ################################# Kill build timeout trick ######################
 
 #kill -9 $PID

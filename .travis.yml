@@ -19,8 +19,6 @@ addons:
     - libatomic-ops-dev
     - root-system
 
-
-
 jobs:
   include:
     - stage: SETUP
@@ -30,108 +28,28 @@ jobs:
         directories:
             - /home/travis/dependancies/CLHEP
             - /home/travis/dependancies/geant4.10.01.p03
-            - /home/travis/dependancies/cmake-3.9.0
-            - /home/travis/dependancies/root-6.10.00
             - /home/travis/logs
-    - stage: Dependancies 1
+    - stage: CLHEP
       sudo: false
       script: ./CI.sh CLHEP
       cache:
         directories:
             - /home/travis/dependancies/CLHEP
             - /home/travis/dependancies/geant4.10.01.p03
-            - /home/travis/dependancies/cmake-3.9.0
-            - /home/travis/dependancies/root-6.10.00
             - /home/travis/logs
-    - stage: Dependancies 2
+    - stage: Geant4
       sudo: false
       script: ./CI.sh Geant4
       cache:
         directories:
             - /home/travis/dependancies/CLHEP
             - /home/travis/dependancies/geant4.10.01.p03
-            - /home/travis/dependancies/cmake-3.9.0
-            - /home/travis/dependancies/root-6.10.00
             - /home/travis/logs
-    - stage: Dependancies 3
-      sudo: false
-      script: ./CI.sh cmake
-      cache:
-        directories:
-            - /home/travis/dependancies/CLHEP
-            - /home/travis/dependancies/geant4.10.01.p03
-            - /home/travis/dependancies/cmake-3.9.0
-            - /home/travis/dependancies/root-6.10.00
-            - /home/travis/logs
-    - stage: root1
-      sudo: false
-      script: ./CI.sh root1
-      cache:
-        directories:
-            - /home/travis/dependancies/CLHEP
-            - /home/travis/dependancies/geant4.10.01.p03
-            - /home/travis/dependancies/cmake-3.9.0
-            - /home/travis/dependancies/root-6.10.00
-            - /home/travis/logs
-    - stage: root2
+    - stage: WCSim built
       sudo: true
-      install:
-        - ./CI.sh root2
-      script: true
+      script: ./CI.sh build
       cache:
         directories:
             - /home/travis/dependancies/CLHEP
             - /home/travis/dependancies/geant4.10.01.p03
-            - /home/travis/dependancies/cmake-3.9.0
-            - /home/travis/dependancies/root-6.10.00
             - /home/travis/logs
-    - stage: root3
-      sudo: true
-      install:
-        - ./CI.sh root3
-      script: true
-      cache:
-        directories:
-            - /home/travis/dependancies/CLHEP
-            - /home/travis/dependancies/geant4.10.01.p03
-            - /home/travis/dependancies/cmake-3.9.0
-            - /home/travis/dependancies/root-6.10.00
-            - /home/travis/logs
-    - stage: root4
-      sudo: true
-      install:
-        - ./CI.sh root4
-      script: true
-      cache:
-        directories:
-            - /home/travis/dependancies/CLHEP
-            - /home/travis/dependancies/geant4.10.01.p03
-            - /home/travis/dependancies/cmake-3.9.0
-            - /home/travis/dependancies/root-6.10.00
-            - /home/travis/logs
-    - stage: root5
-      sudo: true
-      install:
-        - ./CI.sh root5
-      script: true
-      cache:
-        directories:
-            - /home/travis/dependancies/CLHEP
-            - /home/travis/dependancies/geant4.10.01.p03
-            - /home/travis/dependancies/cmake-3.9.0
-            - /home/travis/dependancies/root-6.10.00
-            - /home/travis/logs
-    - stage: root6
-      sudo: true
-      install:
-        - ./CI.sh root6
-      script: true
-      cache:
-        directories:
-            - /home/travis/dependancies/CLHEP
-            - /home/travis/dependancies/geant4.10.01.p03
-            - /home/travis/dependancies/cmake-3.9.0
-            - /home/travis/dependancies/root-6.10.00
-            - /home/travis/logs
-
-
