@@ -17,6 +17,8 @@ addons:
     - libxft-dev
     - libxext-dev
     - libatomic-ops-dev
+    - root-system
+
 
 jobs:
   include:
