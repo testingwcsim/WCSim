@@ -200,21 +200,26 @@ fi
 
 if [ $1 = "build" ]
 then
-    echo STARTING WCSim BUILD `pwd`
+    echo STARTING CLHEP install `pwd`
     wcsim=`pwd`
     cd /home/travis/dependancies/CLHEP/
     echo `ls`
     cd /home/travis/dependancies/CLHEP/build
     sudo make install > log
     cd /home/travis/dependancies/geant4.10.01.p03/build
+    echo STARTING geant install `pwd`  
     sudo make install > log
     cd  $wcsim
-  #  mkdir build
+    echo STARTING WCSim BUILD `pwd`
+    
+    #  mkdir build
   #  cd build
   #  cmake ../
    # make clean
     #make shared
     make rootcint
+    echo finnished root cint `pwd`
+    
     make -j 8
  #   make -j8 | tee ../../../logs/root.log
 fi
