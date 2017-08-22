@@ -205,9 +205,9 @@ then
     cd /home/travis/dependancies/CLHEP/
     echo `ls`
     cd /home/travis/dependancies/CLHEP/build
-    sudo make install
+    sudo make install > log
     cd /home/travis/dependancies/geant4.10.01.p03/build
-    sudo make install
+    sudo make install > log
     cd  $wcsim
     make clean
     make shared
