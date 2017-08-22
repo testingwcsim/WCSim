@@ -46,7 +46,7 @@ jobs:
             - /home/travis/dependancies/geant4.10.01.p03
             - /home/travis/logs
     - stage: WCSim built
-      sudo: true
+      sudo: false
       script: ./CI.sh build
       cache:
         directories:
