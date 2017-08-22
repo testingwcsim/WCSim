@@ -201,6 +201,7 @@ fi
 if [ $1 = "build" ]
 then
     echo STARTING CLHEP install `pwd`
+    dpkg -L root-system
     wcsim=`pwd`
     cd /home/travis/dependancies/CLHEP/
     echo `ls`
