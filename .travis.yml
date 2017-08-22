@@ -22,7 +22,7 @@ addons:
 jobs:
   include:
     - stage: SETUP
-      sudo: false
+      sudo: true
       script: ./CI.sh Setup;
       cache:
         directories:
@@ -30,7 +30,7 @@ jobs:
             - /home/travis/dependancies/geant4.10.01.p03
             - /home/travis/logs
     - stage: CLHEP
-      sudo: false
+      sudo: true
       script: ./CI.sh CLHEP
       cache:
         directories:
@@ -38,7 +38,7 @@ jobs:
             - /home/travis/dependancies/geant4.10.01.p03
             - /home/travis/logs
     - stage: Geant4
-      sudo: false
+      sudo: true
       script: ./CI.sh Geant4
       cache:
         directories:
@@ -46,7 +46,7 @@ jobs:
             - /home/travis/dependancies/geant4.10.01.p03
             - /home/travis/logs
     - stage: WCSim built
-      sudo: false
+      sudo: true
       script: ./CI.sh build
       cache:
         directories:

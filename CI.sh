@@ -210,7 +210,7 @@ then
     sudo make install
     cd  $wcsim
     make clean
-    make rootcint
+    make shared
     make
  #   make -j8 | tee ../../../logs/root.log
 fi
