@@ -200,9 +200,10 @@ fi
 
 if [ $1 = "build" ]
 then
+    echo STARTING WCSim BUILD `pwd`
     wcsim=`pwd`
     cd /home/travis/dependancies/CLHEP/
-    ls
+    echo `ls`
     cd /home/travis/dependancies/CLHEP/build
     sudo make install
     cd /home/travis/dependancies/geant4.10.01.p03/build
