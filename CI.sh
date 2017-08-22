@@ -209,9 +209,12 @@ then
     cd /home/travis/dependancies/geant4.10.01.p03/build
     sudo make install > log
     cd  $wcsim
-    make clean
-    make shared
-    make
+    mkdir build
+    cd build
+    cmake ../
+   # make clean
+    #make shared
+    make-j 8
  #   make -j8 | tee ../../../logs/root.log
 fi
 
