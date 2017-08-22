@@ -42,27 +42,27 @@ then
 	cd ../..
     fi
     
-    if [ ! -f "./cmake-3.9.0/Makefile" ];
-    then
-	rm -rf cmake-3.9.0
-	wget https://cmake.org/files/v3.9/cmake-3.9.0.tar.gz  --no-check-certificate
-	tar zxf cmake-3.9.0.tar.gz
-	cd cmake-3.9.0/
+#    if [ ! -f "./cmake-3.9.0/Makefile" ];
+#    then
+#	rm -rf cmake-3.9.0
+#	wget https://cmake.org/files/v3.9/cmake-3.9.0.tar.gz  --no-check-certificate
+#	tar zxf cmake-3.9.0.tar.gz
+#	cd cmake-3.9.0/
 	 #sudo apt-get purge cmake
-	cd ../
-    fi
+#	cd ../
+ #   fi
     
-    if [ ! -d "./root-6.10.00/Build" ];
-    then
-	rm -rf root-6.10.00
-	wget https://root.cern.ch/download/root_v6.10.00.source.tar.gz
-	tar -zxf root_v6.10.00.source.tar.gz
-	cd root-6.10.00
-	mkdir Build
-	cd Build
-	#cmake ../ | tee ../../../logs/root.log
-	cd ../../
-    fi
+#    if [ ! -d "./root-6.10.00/Build" ];
+#    then
+#	rm -rf root-6.10.00
+#	wget https://root.cern.ch/download/root_v6.10.00.source.tar.gz
+#	tar -zxf root_v6.10.00.source.tar.gz
+#	cd root-6.10.00
+#	mkdir Build
+#	cd Build
+#	#cmake ../ | tee ../../../logs/root.log
+#	cd ../../
+ #  fi
     
     
 fi
@@ -209,12 +209,13 @@ then
     cd /home/travis/dependancies/geant4.10.01.p03/build
     sudo make install > log
     cd  $wcsim
-    mkdir build
-    cd build
-    cmake ../
+  #  mkdir build
+  #  cd build
+  #  cmake ../
    # make clean
     #make shared
-    make-j 8
+    make rootcint
+    make -j 8
  #   make -j8 | tee ../../../logs/root.log
 fi
 
