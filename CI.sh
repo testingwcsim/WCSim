@@ -207,9 +207,9 @@ then
     cd /home/travis/dependancies/CLHEP/build
     sudo make install > log
     cd /home/travis/dependancies/geant4.10.01.p03/build
-    setenv G4INSTALL /home/travis/dependancies/geant4.10.01.p03
     echo STARTING geant install `pwd`  
     sudo make install > log
+    export G4INSTALL=/home/travis/dependancies/geant4.10.01.p03
     cd  $wcsim
     echo STARTING WCSim BUILD `pwd`
     
