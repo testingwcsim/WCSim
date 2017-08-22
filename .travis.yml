@@ -23,7 +23,7 @@ jobs:
   include:
     - stage: SETUP
       sudo: false
-      script: ./CI.sh Setup
+      script: ./CI.sh Setup;
       cache:
         directories:
             - /home/travis/dependancies/CLHEP
