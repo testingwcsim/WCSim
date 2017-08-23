@@ -9,7 +9,7 @@ ROOTLIBS     := $(shell root-config --libs)
 
 CPPFLAGS  += -Wno-deprecated 
 CPPFLAGS  += -I$(PWD)/include
-CPPFLAGS  += -I$(ROOTSYS)/include $(ROOTCFLAGS) 
+CPPFLAGS  +=  $(ROOTCFLAGS) 
 EXTRALIBS += $(ROOTLIBS)
 
 CXX = g++
