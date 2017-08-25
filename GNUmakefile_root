@@ -34,7 +34,10 @@ ROOTOBJS  := $(G4WORKDIR)/tmp/$(G4SYSTEM)/WCSim/WCSimRootEvent.o $(G4WORKDIR)/tm
 
 .PHONY: directories
 
-all: directories libWCSimRoot.so
+all: bb directories libWCSimRoot.so
+
+bb:
+	echo rootmakefile
 
 directories: $(G4TMPDIR)
 
