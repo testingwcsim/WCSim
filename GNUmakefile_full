@@ -48,7 +48,7 @@ DOXYGEN_EXISTS = 0
 endif
 
 .PHONY: all
-all: rootcint lib bin shared libWCSim.a
+all: bb rootcint lib bin shared libWCSim.a
 
 # Note dependencies not yet set up right yet
 
@@ -69,6 +69,9 @@ libWCSim.a : $(ROOTOBJS)
 	rootcint  -f ./src/WCSimRootDict.cc -c -I./include -I$(shell root-config --incdir) WCSimRootEvent.hh WCSimRootGeom.hh  WCSimPmtInfo.hh WCSimEnumerations.hh WCSimRootOptions.hh WCSimRootLinkDef.hh
 
 rootcint: ./src/WCSimRootDict.cc
+
+bb:
+	echo FULL
 
 doxy:
 	@if [ ${DOXYGEN_EXISTS} = 1 ]; \
