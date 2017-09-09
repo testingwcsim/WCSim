@@ -57,17 +57,18 @@ echo Checking dependancy state `pwd`
 #	cd ../
  #   fi
     
-#    if [ ! -d "./root-6.10.00/Build" ];
-#    then
-#	rm -rf root-6.10.00
-#	wget https://root.cern.ch/download/root_v6.10.00.source.tar.gz
-#	tar -zxf root_v6.10.00.source.tar.gz
-#	cd root-6.10.00
-#	mkdir Build
-#	cd Build
-#	#cmake ../ | tee ../../../logs/root.log
-#	cd ../../
- #  fi
+    if [ ! -d "./root-6.10.00/Build" ];
+    then
+	rm -rf root-6.10.00
+	wget https://root.cern.ch/download/root_v6.10.00.source.tar.gz
+	tar -zxf root_v6.10.00.source.tar.gz
+	cd root-6.10.00
+	mkdir Build
+	cd Build
+	cmake ../ | tee ../../../logs/root.log
+	cmake -j8 | tee ../../../logs/root.log
+	cd ../../
+  fi
     
     
 fi
