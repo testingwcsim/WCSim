@@ -16,6 +16,9 @@
 
 if [ $1 = "Setup" ]
 then
+echo here ben
+ls /usr/include/root
+ls /usr/include/TFile.h
 echo `root-config --libs --cflags`	
 echo Checking dependancy state `pwd`
     cd /home/travis/dependancies
