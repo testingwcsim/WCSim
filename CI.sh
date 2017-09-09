@@ -219,7 +219,7 @@ then
     #  mkdir build
   #  cd build
   #  cmake ../
-   echo `root --version -q`
+   #echo `root --version -q`
    echo `root-config --incdir`
    echo `root-config --libs --cflags`
    make clean
