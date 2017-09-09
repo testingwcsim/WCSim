@@ -35,7 +35,11 @@ echo Checking dependancy state `pwd`
     fi
 
 echo filetest
-ls ./geant4.10.01.p03/build/bin/
+ls ./geant4.10.01.p03/build/
+echo filetest2
+ls ./geant4.10.01.p03/
+echo filetest3
+ls ./geant4.10.01.p03/bin/
     if [ ! -d "./geant4.10.01.p03/build" ];
     then
 	rm -rf geant4.10.01.p03
