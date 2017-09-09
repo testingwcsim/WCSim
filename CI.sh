@@ -87,6 +87,9 @@ then
     echo STARTING Geant4 BUILD `pwd`
     cd /home/travis/dependancies/geant4.10.01.p03/build
     make -j8 | tee ../../../logs/Geant4.log
+    echo file test
+    ls /home/travis/dependancies/geant4.10.01.p03/config/sys/.gmk
+    ls -l /home/travis/dependancies/geant4.10.01.p03/config/sys/.gmk
     #cd ../../../WCSim
 fi
 
