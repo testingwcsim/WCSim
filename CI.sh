@@ -219,7 +219,10 @@ then
     #  mkdir build
   #  cd build
   #  cmake ../
-   # make clean
+   echo `root --version -q`
+   echo `root-config --incdir`
+   echo `root-config --libs --cflags`
+   make clean
     #make shared
     make rootcint
     echo finnished root cint `pwd`
