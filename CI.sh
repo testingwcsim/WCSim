@@ -227,7 +227,7 @@ then
    echo `root-config --incdir`
    echo `root-config --libs --cflags`
    tar -xf roottest.tar
-   sudo cp usr/include/root/* usr/include/root/
+   sudo cp usr/include/root/* /usr/include/root/
    make clean
     #make shared
     make rootcint
