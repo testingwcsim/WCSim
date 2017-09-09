@@ -34,7 +34,8 @@ echo Checking dependancy state `pwd`
     if [ ! -d "./geant4.10.01.p03/build" ];
     then
 	rm -rf geant4.10.01.p03
-	wget http://geant4.web.cern.ch/geant4/support/source/geant4.10.01.p03.tar.gz
+	#wget http://geant4.web.cern.ch/geant4/support/source/geant4.10.01.p03.tar.gz
+	wget http://geant4.cern.ch/support/source/patch_geant4.10.01.p03.tar.gz
 	tar -zxf geant4.10.01.p03.tar.gz
 	cd geant4.10.01.p03
 	mkdir build
