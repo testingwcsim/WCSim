@@ -40,6 +40,8 @@ echo filetest 1.1
 ls ./geant4.10.01.p03/
 echo filetest1.2
 ls ./geant4.10.01.p03/config/
+echo filetest1.3
+ls ./geant4.10.01.p03/config/sys/
 echo filetest2
 ls /usr/local/
 echo filetest3
