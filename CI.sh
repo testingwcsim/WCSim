@@ -37,7 +37,7 @@ echo Checking dependancy state `pwd`
 echo filetest
 ls ./geant4.10.01.p03/build/
 echo filetest2
-ls ./geant4.10.01.p03/
+ls /usr/local/
 echo filetest3
 ls /usr/local/bin/
     if [ ! -d "./geant4.10.01.p03/build" ];
