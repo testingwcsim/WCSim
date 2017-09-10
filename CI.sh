@@ -47,7 +47,7 @@ ls /usr/local/
 echo filetest3
 ls /usr/local/bin/
 echo filetest4
-ls /usr/lib/x86_64-linux-gnu/libTree*
+ls /usr/lib/x86_64-linux-gnu/
     if [ ! -d "./geant4.10.01.p03/build" ];
     then
 	rm -rf geant4.10.01.p03
