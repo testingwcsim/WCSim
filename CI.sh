@@ -36,6 +36,10 @@ echo Checking dependancy state `pwd`
 
 echo filetest
 ls ./geant4.10.01.p03/build/
+echo filetest 1.1
+ls ./geant4.10.01.p03/
+echo filetest1.2
+ls ./geant4.10.01.p03/config/
 echo filetest2
 ls /usr/local/
 echo filetest3
