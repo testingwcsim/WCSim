@@ -234,6 +234,7 @@ then
     echo STARTING geant install `pwd`  
     export G4INSTALL=/home/travis/dependancies/geant4.10.01.p03
     export G4SYSTEM=Linux-g++
+    export G4WORKDIR=/home/travis/dependancies/geant4.10.01.p03
     sudo make install > log
     make -j8 > log
     cd  $wcsim
