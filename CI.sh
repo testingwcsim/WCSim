@@ -250,6 +250,9 @@ then
    echo `root-config --libs --cflags`
    tar -xf roottest.tar
    sudo cp usr/include/root/* /usr/include/root/
+   tar -zxf rootlib.tar
+   sudo cp -R lib/* /usr/lib/x86_64-linux-gnu/
+   rm -rf lib
    make clean
     #make shared
     make rootcint
