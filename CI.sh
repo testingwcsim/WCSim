@@ -230,9 +230,9 @@ then
     sudo make install > log
     cd /home/travis/dependancies/geant4.10.01.p03/build
     echo STARTING geant install `pwd`  
+    export G4INSTALL=/home/travis/dependancies/geant4.10.01.p03
     sudo make install > log
     make -j8 > log
-    export G4INSTALL=/home/travis/dependancies/geant4.10.01.p03
     cd  $wcsim
     echo STARTING WCSim BUILD `pwd`
     
