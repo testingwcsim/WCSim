@@ -47,7 +47,7 @@ jobs:
             - /home/travis/logs
     - stage: WCSim built
       sudo: true
-      script: ./CI.sh build
+      script: source ./CI.sh build
       cache:
         directories:
             - /home/travis/dependancies/CLHEP
