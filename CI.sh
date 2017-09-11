@@ -41,7 +41,7 @@ ls ./geant4.10.01.p03/
 echo filetest1.2
 ls ./geant4.10.01.p03/config/
 echo filetest1.3
-ls ./geant4.10.01.p03/config/sys/
+ls ./geant4.10.01.p03/source/
 echo filetest2
 ls /usr/local/
 echo filetest3
@@ -234,7 +234,7 @@ then
     sudo make install > log
     cd /home/travis/dependancies/geant4.10.01.p03/build
     echo STARTING geant install `pwd`  
-    export G4INSTALL=/home/travis/dependancies/geant4.10.01.p03/build
+    export G4INSTALL=/home/travis/dependancies/geant4.10.01.p03
     export G4SYSTEM=Linux-g++
     export G4WORKDIR=/home/travis/dependancies/geant4.10.01.p03
     sudo make install > log
