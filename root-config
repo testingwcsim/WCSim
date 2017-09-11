@@ -2,7 +2,7 @@
 
 if [ $1 = "--libs" ]
 then
-/usr/root-config $1 | sed s:-lPhysics:: | sed s:-lPostscript::
+/usr/root-config $1 | sed s:-lPhysics:: | sed s:-lPostscript:: | sed s:-lGraf3d::
 else
 /usr/root-config $1
 fi
