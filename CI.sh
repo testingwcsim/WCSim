@@ -253,6 +253,10 @@ then
    tar -zxf rootlib.tar
    sudo cp -R lib/* /usr/lib/x86_64-linux-gnu/
    rm -rf lib
+   sudo mv /usr/bin/root-config /usr/
+   sudo cp root-config /usr/bin/
+   echo rootconfig test
+   echo `which root-config`
    make clean
     #make shared
     make rootcint
